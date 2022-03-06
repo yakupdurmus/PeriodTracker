@@ -1,7 +1,9 @@
 import * as Sentry from '@sentry/react-native';
-import App from './App';
+import {SENTRY_KEY} from '../config';
+import Router from './router';
 
 Sentry.init({
-  dsn: 'https://b299ec7a094146b0b21e7521d30d660f@o879340.ingest.sentry.io/6218010',
+  dsn: SENTRY_KEY,
 });
-export default Sentry.wrap(App);
+
+export default Sentry.wrap(Router);
