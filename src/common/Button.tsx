@@ -2,7 +2,7 @@ import React from 'react';
 import {Platform, StyleSheet, TouchableOpacity} from 'react-native';
 import {Label} from './Label';
 import Spinner from 'react-native-spinkit';
-import {COLOR} from '../constant';
+import {COLOR} from 'constant';
 
 interface ButtonProps {
   style?: any;

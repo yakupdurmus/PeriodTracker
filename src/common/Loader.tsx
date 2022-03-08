@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import Spinner from 'react-native-spinkit';
-import {COLOR} from '../constant';
+import {COLOR} from 'constant';
 
 export const Loader = (props: any) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import {ViewStyle} from 'react-native';
-import {COLOR} from '../constant';
+import {COLOR} from 'constant';
 import {IconSet, IconTypes} from './IconSet';
 
 interface IconProps {
