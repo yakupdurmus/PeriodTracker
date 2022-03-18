@@ -5,10 +5,18 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "test": "jest",
+    "test-coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "android-clean": "cd android/ && ./gradlew clean",
+    "android-release": "cd android/ && ./gradlew assembleRelease",
+    "ios-remove": "xcrun simctl uninstall booted com.mobile.justmop",
+    "cache-clean-start": "watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf node_modules/ && npm cache verify && npm install --legacy-peer-deps && cd ios/ && rm -rf build && rm -rf Pods && pod install && cd .. && npm start -- --reset-cache",
+    "cache-clean-assemble-release": "watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf node_modules/ && npm cache verify && npm install --legacy-peer-deps && cd ios/ && rm -rf build && rm -rf Pods && pod install && cd .. && cd android && ./gradlew clean && ./gradlew assembleRelease",
+    "cache-clean-assemble-staging": "watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf node_modules/ && npm cache verify && npm install --legacy-peer-deps && cd ios/ && rm -rf build && rm -rf Pods && pod install && cd .. && cd android && ./gradlew clean && ./gradlew assembleStaging",
+    "postinstall": "patch-package && jetify"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.16.1",
@@ -39,6 +47,8 @@
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
     "babel-jest": "^26.6.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^7.14.0",
     "husky": "^7.0.4",
     "jest": "^26.6.3",

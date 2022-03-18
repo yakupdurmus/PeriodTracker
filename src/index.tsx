@@ -1,7 +1,6 @@
 import React from 'react';
 import * as Sentry from '@sentry/react-native';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {SENTRY_KEY} from 'config';
+import {SENTRY_KEY} from '../config';
 import Router from 'router';
 
 Sentry.init({
@@ -9,11 +8,7 @@ Sentry.init({
 });
 
 const Wrapper = () => {
-  return (
-    <GestureHandlerRootView>
-      <Router />
-    </GestureHandlerRootView>
-  );
+  return <Router />;
 };
 
 export default Sentry.wrap(Wrapper);
