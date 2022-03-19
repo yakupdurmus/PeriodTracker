@@ -1,10 +1,10 @@
 import React from 'react';
 import {TextInput, View} from 'react-native';
-import {Label} from './Label';
-import {TextInputMask} from 'react-native-masked-text';
+import {Label} from 'common/Label';
+import {TextInputMask, TextInputMaskProps} from 'react-native-masked-text';
 import {COLOR, INPUTMASK} from 'constant';
 
-interface InputProps {
+interface InputProps extends TextInputMaskProps {
   require?: any;
   title?: any;
   error?: any;
@@ -13,20 +13,10 @@ interface InputProps {
   style?: any;
   isPhone?: any;
   value?: any;
-  onChangeText?: any;
 }
 export const Input = (props: InputProps) => {
-  const {
-    require,
-    title,
-    error,
-    errorMessage,
-    contentStyle,
-    style,
-    isPhone,
-    value,
-    onChangeText,
-  } = props;
+  const {require, title, error, errorMessage, contentStyle, style, isPhone} =
+    props;
   return (
     <View style={[styles.content, contentStyle]}>
       {title && (
@@ -41,8 +31,6 @@ export const Input = (props: InputProps) => {
           type={'custom'}
           options={INPUTMASK}
           keyboardType="number-pad"
-          value={value}
-          onChangeText={onChangeText}
           style={styles.phoneInput}
           placeholder="Telefon Numarası"
           placeholderTextColor={COLOR.lightGray}

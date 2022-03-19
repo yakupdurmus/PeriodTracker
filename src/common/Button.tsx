@@ -1,10 +1,15 @@
 import React from 'react';
-import {Platform, StyleSheet, TouchableOpacity} from 'react-native';
-import {Label} from './Label';
+import {
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableOpacityProps,
+} from 'react-native';
+import {Label} from 'common/Label';
 import Spinner from 'react-native-spinkit';
 import {COLOR} from 'constant';
 
-interface ButtonProps {
+interface ButtonProps extends TouchableOpacityProps {
   style?: any;
   textProps?: any;
   textStyle?: any;
@@ -15,11 +20,6 @@ interface ButtonProps {
   left?: any;
   right?: any;
   buttonType?: 'light' | 'yellow' | 'smokeyellow' | 'orange' | 'green';
-  light?: any;
-  yellow?: any;
-  smokeyellow?: any;
-  orange?: any;
-  green?: any;
 }
 
 export const Button = (props: ButtonProps) => {
@@ -46,8 +46,7 @@ export const Button = (props: ButtonProps) => {
         <Label
           {...props.textProps}
           style={[
-            props.yellow ? styles.yellow : {},
-            props.orange ? styles.orange : {},
+            props.buttonType && styles[props.buttonType],
             props.textStyle,
           ]}>
           {props.children}

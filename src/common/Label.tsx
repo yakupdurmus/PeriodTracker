@@ -1,12 +1,10 @@
 import React from 'react';
-import {Text, TextStyle, TextProps} from 'react-native';
+import {Text, TextProps} from 'react-native';
 import {COLOR} from 'constant';
 
 interface ILabel extends TextProps {
   type?: 'h1' | 'h2' | 'h3' | 'h4' | 'normal';
   bold?: boolean;
-  style?: TextStyle;
-  children?: any;
 }
 
 export const Label = (props: ILabel) => {
