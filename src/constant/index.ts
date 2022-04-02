@@ -17,13 +17,3 @@ const COLOR = {
 const INPUTMASK = {mask: '0999 999 99 99'};
 
 export {COLOR, INPUTMASK};
-
-/*
-genel #fff  #f7f7f7  #ddd #3e3e3e #000 #f73f40 #e1393a #00b7cd
-border #eee
-light button #ddd
-danger button #f73f40
-primary button : #00b7cd
-green : #075e54
-
-*/

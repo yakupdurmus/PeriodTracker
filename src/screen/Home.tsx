@@ -1,28 +1,56 @@
-import {setUser} from 'actions';
 import {Button} from 'common/Button';
 import {IRootState} from 'interface/IBase';
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, I18nManager} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import RNRestart from 'react-native-restart'; // Import package from node modules
 
+import I18n from 'i18n';
+import {LANGUAGE} from 'interface/ISettings';
+import {setLanguage} from 'actions';
+import {setItem} from 'helper/Storage';
 const HomeScreen = () => {
   const dispatch = useDispatch();
-  let user = useSelector((state: IRootState) => state);
+  let collection = useSelector((state: IRootState) => state.collection);
+  console.log('collection.language', collection.language, I18nManager.isRTL);
+
+  const selectLang = (language: LANGUAGE) => {
+    if (language === LANGUAGE.AR) {
+      I18nManager.allowRTL(true);
+      I18nManager.forceRTL(true);
+    } else {
+      I18nManager.allowRTL(false);
+      I18nManager.forceRTL(false);
+    }
+
+    dispatch(setLanguage(language));
+    I18n.locale = language;
+
+    setItem('language', language).then(() => {
+      RNRestart.Restart();
+    });
+  };
 
   return (
     <View style={style.container}>
-      <Text>Home Screen</Text>
+      <Text style={{backgroundColor: 'white'}}>{I18n.t('hello')}</Text>
       <Button
         onPress={() => {
-          dispatch(setUser('TEST'));
+          selectLang(LANGUAGE.TR);
         }}>
-        Tıkla
+        Türkçe
       </Button>
       <Button
         onPress={() => {
-          console.log(user);
+          selectLang(LANGUAGE.AR);
         }}>
-        Tıkla
+        Arapça
+      </Button>
+      <Button
+        onPress={() => {
+          selectLang(LANGUAGE.EN);
+        }}>
+        İngilizce
       </Button>
     </View>
   );
@@ -31,7 +59,6 @@ const HomeScreen = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'yellow',
   },

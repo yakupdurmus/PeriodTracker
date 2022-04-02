@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as Screen from './screen';
 
 const Stack = createNativeStackNavigator();
-export default function App() {
+export default function Container() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
