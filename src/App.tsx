@@ -1,15 +1,15 @@
 import React, {useCallback, useEffect} from 'react';
 import * as Sentry from '@sentry/react-native';
 import {SENTRY_KEY} from '../config';
-import Router from 'router';
-import I18n from 'i18n';
-import {getLanguage} from 'helper';
+import Router from 'router/Container';
+import I18n from 'i18n/I18n';
+import {getLanguage} from 'helper/helper';
 
 //Redux
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import ReduxThunk from 'redux-thunk';
-import reducers from 'reducers';
+import reducers from 'reducers/combineReducers';
 import {setLanguage} from 'actions';
 import {LANGUAGE} from 'interface/ISettings';
 

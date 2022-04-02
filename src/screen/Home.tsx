@@ -5,7 +5,7 @@ import {View, Text, StyleSheet, I18nManager} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import RNRestart from 'react-native-restart'; // Import package from node modules
 
-import I18n from 'i18n';
+import I18n from 'i18n/I18n';
 import {LANGUAGE} from 'interface/ISettings';
 import {setLanguage} from 'actions';
 import {setItem} from 'helper/Storage';

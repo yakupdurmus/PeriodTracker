@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {Label} from 'common/Label';
 import Spinner from 'react-native-spinkit';
-import {COLOR} from 'constant';
+import {COLOR} from 'constant/constants';
 
 interface ButtonProps extends TouchableOpacityProps {
   style?: any;

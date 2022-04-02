@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TextProps} from 'react-native';
-import {COLOR} from 'constant';
+import {COLOR} from 'constant/constants';
 
 interface ILabel extends TextProps {
   type?: 'h1' | 'h2' | 'h3' | 'h4' | 'normal';

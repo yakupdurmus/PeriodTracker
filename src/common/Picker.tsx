@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Platform} from 'react-native';
 import {Label} from './Label';
 import RNPickerSelect, {PickerItemProps} from '@react-native-picker/picker';
-import {COLOR} from 'constant';
+import {COLOR} from 'constant/constants';
 
 interface PickerProps {
   title?: string;

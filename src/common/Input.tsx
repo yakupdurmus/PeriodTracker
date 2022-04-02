@@ -2,7 +2,7 @@ import React from 'react';
 import {TextInput, View} from 'react-native';
 import {Label} from 'common/Label';
 import {TextInputMask, TextInputMaskProps} from 'react-native-masked-text';
-import {COLOR, INPUTMASK} from 'constant';
+import {COLOR, INPUTMASK} from 'constant/constants';
 
 interface InputProps extends TextInputMaskProps {
   require?: any;
