@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TextProps} from 'react-native';
+import {StyleSheet, Text, TextProps} from 'react-native';
 import {COLOR} from 'constant/constants';
 
 interface ILabel extends TextProps {
@@ -9,23 +9,25 @@ interface ILabel extends TextProps {
 
 export const Label = (props: ILabel) => {
   const {type, bold, style} = props;
+
+  const testStyle = [
+    styles.textStyle,
+    styles[type || 'normal'],
+    bold && styles.bold,
+    style,
+  ];
+
   return (
-    <Text
-      {...props}
-      style={[
-        styles.textStyle,
-        styles[type || 'normal'],
-        bold && styles.bold,
-        style,
-      ]}>
+    <Text style={testStyle} {...props}>
       {props.children}
     </Text>
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   textStyle: {
-    color: COLOR.lightGrayishCyan,
+    color: COLOR.black80,
+    textAlign: 'left',
   },
   h1: {
     fontSize: 16,
@@ -51,4 +53,4 @@ const styles = {
     fontWeight: 'bold',
   },
   normal: {},
-};
+});

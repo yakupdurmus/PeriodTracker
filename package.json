@@ -78,10 +78,11 @@
       "node"
     ],
     "transformIgnorePatterns": [
-      "/node_modules/(?!(@react-native|react-native-spinkit|react-native|@react-navigation|@react-navigation/native|@react-navigation/native-stack|@sentry)/).*/"
+      "/node_modules/(?!(@react-native|react-native-i18n|react-native-spinkit|react-native|@react-navigation|@react-navigation/native|@react-navigation/native-stack|@sentry)/).*/"
     ],
     "setupFilesAfterEnv": [
-      "@testing-library/jest-native/extend-expect"
+      "@testing-library/jest-native/extend-expect",
+      "<rootDir>/__tests__/setupTest.js"
     ],
     "moduleDirectories": [
       "node_modules",

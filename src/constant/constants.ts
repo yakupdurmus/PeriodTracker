@@ -12,6 +12,10 @@ const COLOR = {
   lightGrayishOrange: '#ECE4DB',
   lightGrayishYellow: '#E8E8E4',
   lightGrayishCyan: '#D8E2DC',
+  black30: 'rgba(0,0,0,0.30)',
+  black60: 'rgba(0,0,0,0.60)',
+  black80: 'rgba(0,0,0,0.80)',
+  black100: 'rgba(0,0,0,1)',
 };
 
 const INPUTMASK = {mask: '0999 999 99 99'};
